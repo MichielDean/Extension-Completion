@@ -187,7 +187,6 @@ class Tests(unittest.TestCase):
         self.assertEqual(code, 0)
 
     def test_scheduler_mode_special_chars_password(self):
-        """End-to-end: script should not crash when ControlPassword contains URL-breaking characters"""
         set_defaults_env()
         os.environ["NZBOP_CONTROLPASSWORD"] = "p@ss#w0rd%test$"
         os.environ["NZBSP_TASKID"] = "ID"
@@ -271,7 +270,6 @@ class UnitTests(unittest.TestCase):
         self.assertIsNone(msg_id_used)
 
     def test_connect_to_nzbget_encodes_special_chars(self):
-        """URL-breaking characters in credentials must be percent-encoded in the XML-RPC URL"""
         os.environ["NZBOP_CONTROLIP"] = HOST
         os.environ["NZBOP_CONTROLPORT"] = PORT
         os.environ["NZBOP_CONTROLUSERNAME"] = USERNAME
@@ -294,7 +292,6 @@ class UnitTests(unittest.TestCase):
         self.assertIn("/xmlrpc", url)
 
     def test_connect_to_nzbget_normal_password(self):
-        """Alphanumeric credentials should produce a valid URL unchanged"""
         os.environ["NZBOP_CONTROLIP"] = HOST
         os.environ["NZBOP_CONTROLPORT"] = PORT
         os.environ["NZBOP_CONTROLUSERNAME"] = USERNAME
